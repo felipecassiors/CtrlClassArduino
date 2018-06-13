@@ -92,5 +92,5 @@ void outNo(){
 
 void outEr(){
   Serial.println("ERROR");
-  digitalWrite(14, HIGH); delay(3000); digitalWrite(14, LOW);
+  digitalWrite(14, HIGH); delay(1500); digitalWrite(14, LOW);
 }
