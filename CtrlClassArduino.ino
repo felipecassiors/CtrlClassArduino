@@ -66,11 +66,13 @@ void check(String tag){
 }
 
 void rfid(){
+  // Verifica se tem algum cartão presente e se é possível ler sua TAG
   while ( ! mfrc522.PICC_IsNewCardPresent() || ! mfrc522.PICC_ReadCardSerial() ) delay(100) ;
+  // Formata a tag para uma variável String
   String tag= "";
   for (byte i = 0; i < mfrc522.uid.size; i++) tag.concat(String(mfrc522.uid.uidByte[i], HEX));
   tag.toUpperCase();
-  //check(tag.substring(1));
+  // Executa instruções de checagem para definir se a TAG está autorizada ou não
   check(tag);
 }
 
